@@ -11,5 +11,6 @@ public interface ICourseOfferCRUD extends Remote{
 	Boolean offerCourse(CourseOffer offer) throws RemoteException;
 	int getOfferedCount(int courseId) throws RemoteException;
 	Boolean offerCourse() throws RemoteException;
+	Boolean offerCourse(String params) throws RemoteException;
 	
 }
