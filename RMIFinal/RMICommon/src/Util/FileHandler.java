@@ -104,15 +104,29 @@ public class FileHandler {
 //        return tList;
 //	}
 	public static<T> void writeToFile(List<T> tList,String fileName,Boolean append) {
+		String props = null;
+		
 		try(FileWriter fw = new FileWriter(fileName, append);
 			    BufferedWriter bw = new BufferedWriter(fw);
 			    PrintWriter out = new PrintWriter(bw))
 			{
-			StringBuffer line = new StringBuffer();
 			for (T t : tList) {
-					line.append(t.toString());
+					out.println(t.toString());
 			}
-			out.write(line.toString());
+			} catch (IOException e) {
+			    //exception handling left as an exercise for the reader
+			}
+		}
+	public static<T> void writeToFile(String text,String fileName,Boolean append) {
+		String props = null;
+		
+		try(FileWriter fw = new FileWriter(fileName, append);
+			    BufferedWriter bw = new BufferedWriter(fw);
+			    PrintWriter out = new PrintWriter(bw))
+			{
+			StringBuffer line = new StringBuffer(text);
+			
+			out.println(line.toString());
 			} catch (IOException e) {
 			    //exception handling left as an exercise for the reader
 			}

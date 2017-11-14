@@ -66,8 +66,8 @@ public class CourseOffer extends Model implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return courseId + ", " + TimingId + ", " + section + ", " + faculty + ", " + room_no + ", " + type + ", "
-				+ student_id + ", " + status;
+		return courseId + "," + TimingId + "," + section + "," + faculty + "," + room_no + "," + type + ","
+				+ student_id + "," + status;
 	}
 	
 	

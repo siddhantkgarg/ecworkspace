@@ -48,16 +48,17 @@ public class CourseOfferServant extends AbstractCRUD<CourseOffer> implements ICo
 				return Collections.EMPTY_LIST;
 			}
 		}
-		FileHandler.writeToFile(super.t,Constants.OFFER_FILE, false);
+		FileHandler.writeToFile("courseId,TimingId,section,faculty,room_no,type,student_id,status",Constants.OFFER_FILE, false);
+		FileHandler.writeToFile(super.t,Constants.OFFER_FILE, true);
 		return super.t;
 		
 	}
 	
 
 	@Override
-	public List<CourseOffer> getCourse(int id) {
+	public String getCourse(int id) {
 		FileHandler.Log("getCourse", "Request recieved "+ id, false);
-		return Retrieve(t, CourseOffer::getCourseId, id);
+		return Retrieve(t, CourseOffer::getCourseId, id).get(0).toString();
 	}
 
 	@Override
@@ -76,7 +77,7 @@ public class CourseOfferServant extends AbstractCRUD<CourseOffer> implements ICo
 		offer.setRoom_no(1);
 		offer.setSection(1);
 		offer.setStatus(1);
-		offer.setStudent_id(1);
+		offer.setStudent_id(2);
 		offer.setTimingId(1);
 		offer.setType(CourseType.ONLINE);
 		
@@ -85,7 +86,7 @@ public class CourseOfferServant extends AbstractCRUD<CourseOffer> implements ICo
 
 	@Override
 	public int getOfferedCount(int courseId) {
-		return 0;
+		return Retrieve(t, CourseOffer::getCourseId,courseId).size();
 	}
 	
 	
