@@ -1,0 +1,2 @@
+courseId,TimingId,section,faculty,room_no,type,student_id,status
+1,1,1,123,1,Online,1,1
